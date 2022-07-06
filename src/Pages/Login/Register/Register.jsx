@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.config";
+import GoogleLogin from "../GoogleLogin/GoogleLogin";
 
 const Register = () => {
   const emailRef = useRef("");
@@ -57,6 +58,7 @@ const Register = () => {
         <p>
           please <Link to="/login">Login</Link>
         </p>
+        <GoogleLogin />
       </div>
     </div>
   );
