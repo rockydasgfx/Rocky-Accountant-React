@@ -8,11 +8,17 @@ const Services = () => {
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
-  console.log(services);
+
   return (
     <div className="container mx-auto">
-      <h1>services</h1>
-      <Service />
+      <h1 className="text-center my-5">
+        A Wide Range Professional of Services
+      </h1>
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+        {services.map((service) => (
+          <Service key={service.id} service={service} />
+        ))}
+      </div>
     </div>
   );
 };

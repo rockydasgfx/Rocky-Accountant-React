@@ -1,16 +1,18 @@
 import React from "react";
 
-const Service = () => {
+const Service = (props) => {
+  const { name, price, img, des } = props.service;
   return (
     <div className="col">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">title</h5>
-          <p class="card-text">description</p>
-          <p class="card-text">price</p>
+      <div className="card h-100">
+        <img src={img} className="card-img-top " alt="" />
+        <div className="card-body">
+          <h5 className="card-title">{name}</h5>
+          <p className="card-text">{des}</p>
+          <p className="card-text fw-bold">Price: ${price}</p>
         </div>
-        <div class="card-footer">
-          <button type="button" class="btn btn-dark">
+        <div className="card-footer">
+          <button type="button" className="btn btn-dark w-100">
             Book Now
           </button>
         </div>
