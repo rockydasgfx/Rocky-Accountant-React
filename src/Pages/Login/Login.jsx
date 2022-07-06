@@ -1,6 +1,9 @@
 import { useRef } from "react";
 import { Form, Button } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.config";
 import GoogleLogin from "./GoogleLogin/GoogleLogin";
@@ -16,6 +19,8 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
   if (loading) {
     return <p>login</p>;
   }
@@ -29,6 +34,16 @@ const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     signInWithEmailAndPassword(email, password);
+  };
+
+  const hendleResetPassword = async () => {
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      console.log("email Send");
+    } else {
+      console.log("Plese Type Your Email");
+    }
   };
 
   return (
@@ -63,6 +78,12 @@ const Login = () => {
         <p className="text-denger">{error?.message ? error?.message : ""}</p>
         <p>
           Are You New <Link to="/register">Register</Link>
+        </p>
+        <p>
+          Are You New{" "}
+          <Button variant="link" onClick={hendleResetPassword}>
+            password Reset
+          </Button>
         </p>
         <GoogleLogin />
       </div>
