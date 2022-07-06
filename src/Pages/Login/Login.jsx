@@ -1,18 +1,26 @@
 import { useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.config";
 
 const Login = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location?.state?.from?.pathname || "/";
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
   if (loading) {
     return <p>login</p>;
+  }
+
+  if (user) {
+    navigate(from, { replace: true });
   }
 
   const hendleLogin = (event) => {
