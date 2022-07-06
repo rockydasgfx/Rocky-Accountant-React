@@ -53,9 +53,9 @@ const Register = () => {
             Register
           </Button>
         </Form>
-        <p>{error?.message ? error?.message : ""}</p>
+        <p className="text-denger">{error?.message ? error?.message : ""}</p>
         <p>
-          please <Link to="/login">Login</Link>{" "}
+          please <Link to="/login">Login</Link>
         </p>
       </div>
     </div>
