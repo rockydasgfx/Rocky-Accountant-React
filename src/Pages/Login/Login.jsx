@@ -1,5 +1,4 @@
 import { Form, Button } from "react-bootstrap";
-import google from "../../assets/images/google.svg";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -25,14 +24,6 @@ const Login = () => {
         <p>
           Are You New <Link to="/register">Register</Link>{" "}
         </p>
-        <div>
-          <Button
-            variant="dark"
-            className="w-100 d-inline-flex align-items-center justify-content-center "
-          >
-            <img src={google} alt="" className="me-2" /> Login With Google
-          </Button>
-        </div>
       </div>
     </div>
   );
