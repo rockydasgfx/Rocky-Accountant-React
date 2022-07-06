@@ -1,12 +1,13 @@
 import Services from "../Services/Services";
 import Banner from "./Banner/Banner";
+import Success from "./Success/Success";
 
 const Home = () => {
   return (
     <div>
       <Banner />
       <Services />
-      <h2>clint</h2>
+      <Success />
       <h2>footer</h2>
     </div>
   );
