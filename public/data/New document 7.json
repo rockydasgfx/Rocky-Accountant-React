@@ -1,0 +1,32 @@
+[
+  {
+    "name": "ACCOUNTING SOLUTIONS",
+    "price": 200,
+    "img": "https://i.ibb.co/Vm0QRWz/as.jpg",
+    "des": "Spend your time building your business and your profits; I will handle your bookkeeping, payroll, record keeping, report filing, and more"
+  },
+  {
+    "name": "TAX PREPARATION",
+    "price": 300,
+    "img": "https://i.ibb.co/w72157q/tax.jpg",
+    "des": "Hire a professional firm to handle your taxes. I provide professional and timely services."
+  },
+  {
+    "name": "FINANCIAL STATEMENTS",
+    "price": 400,
+    "img": "https://i.ibb.co/nmnVpYz/fs.jpg",
+    "des": "I can prepare or supervise the preparation of your financial statements. Then fully compiled and reviewed according to your needs."
+  },
+  {
+    "name": "BUSINESS SETUP",
+    "price": 500,
+    "img": "https://i.ibb.co/CKs2yhd/business.jpg",
+    "des": "Ready to start your own business? Then you have come to the right place. I work personally with our clients to achieve their business goals."
+  },
+  {
+    "name": "PAYROLL PROCESSING",
+    "price": 600,
+    "img": "https://i.ibb.co/y0VyNFM/payroll.jpg",
+    "des": "My Payroll Processing Services includes preparation of payroll checks as well as any agency checks necessary for employee garnishments, such as child support, bankruptcy, creditor garnishments, etc"
+  }
+]
