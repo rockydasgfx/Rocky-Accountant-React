@@ -5,6 +5,7 @@ import {
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Loading from "../../Components/Loading/Loading";
 import auth from "../../firebase.config";
 import GoogleLogin from "./GoogleLogin/GoogleLogin";
 
@@ -21,8 +22,8 @@ const Login = () => {
 
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-  if (loading) {
-    return <p>login</p>;
+  if (loading || sending) {
+    return <Loading />;
   }
 
   if (user) {

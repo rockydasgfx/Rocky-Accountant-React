@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import google from "../../../assets/images/google.svg";
+import Loading from "../../../Components/Loading/Loading";
 import auth from "../../../firebase.config";
 
 const GoogleLogin = () => {
@@ -11,7 +12,7 @@ const GoogleLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
   if (loading) {
-    return <p>login</p>;
+    return <Loading />;
   }
 
   const from = location?.state?.from?.pathname || "/";

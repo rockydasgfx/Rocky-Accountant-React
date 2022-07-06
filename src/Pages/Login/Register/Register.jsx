@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.config";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
+import Loading from "../../../Components/Loading/Loading";
 
 const Register = () => {
   const emailRef = useRef("");
@@ -15,7 +16,7 @@ const Register = () => {
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   if (loading) {
-    return <p>login</p>;
+    return <Loading />;
   }
 
   const hendleRegister = (event) => {
