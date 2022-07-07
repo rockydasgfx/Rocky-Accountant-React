@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.config";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
 import Loading from "../../../Components/Loading/Loading";
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
   const emailRef = useRef("");
@@ -25,6 +26,7 @@ const Register = () => {
     const password = passwordRef.current.value;
     createUserWithEmailAndPassword(email, password);
     navigate("/home");
+    toast("Register Complete");
   };
   return (
     <div className="container mx-auto">
@@ -57,10 +59,11 @@ const Register = () => {
         </Form>
         <p className="text-denger">{error?.message ? error?.message : ""}</p>
         <p>
-          please <Link to="/login">Login</Link>
+          If you alredy Register plase <Link to="/login">Login</Link>
         </p>
         <GoogleLogin />
       </div>
+      <ToastContainer />
     </div>
   );
 };

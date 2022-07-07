@@ -9,6 +9,10 @@ import Login from "./Pages/Login/Login";
 import Register from "./Pages/Login/Register/Register";
 import NotFound from "./Pages/NotFound/NotFound";
 import Services from "./Pages/Services/Services";
+import "react-toastify/dist/ReactToastify.css";
+import Footer from "./Components/Footer/Footer";
+import Blogs from "./Pages/Blogs/Blogs";
+import About from "./Pages/About/About";
 
 function App() {
   return (
@@ -20,6 +24,8 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/checkout"
           element={
@@ -30,6 +36,7 @@ function App() {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

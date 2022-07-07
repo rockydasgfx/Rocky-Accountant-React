@@ -1,14 +1,15 @@
 import { signOut } from "firebase/auth";
 import React from "react";
-import { Button, Container, Nav } from "react-bootstrap";
+import { Button, Container, Nav, Toast } from "react-bootstrap";
 import Navbar from "react-bootstrap/Navbar";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
 import auth from "../../firebase.config";
+import { ToastContainer, toast } from "react-toastify";
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
-  console.log(user);
+
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -25,8 +26,8 @@ const Header = () => {
               <Nav.Link as={NavLink} to="/services">
                 Services
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/blog">
-                Blog
+              <Nav.Link as={NavLink} to="/blogs">
+                Blogs
               </Nav.Link>
               <Nav.Link as={NavLink} to="/about">
                 About
@@ -35,7 +36,10 @@ const Header = () => {
                 <Nav.Link
                   as={Button}
                   className="bg-white text-dark px-1 py-0 ms-2"
-                  onClick={() => signOut(auth)}
+                  onClick={() => {
+                    signOut(auth);
+                    toast("User Logout");
+                  }}
                 >
                   Logout
                 </Nav.Link>
@@ -47,6 +51,7 @@ const Header = () => {
             </Nav>
           </Navbar.Collapse>
         </Container>
+        <ToastContainer />
       </Navbar>
     </div>
   );

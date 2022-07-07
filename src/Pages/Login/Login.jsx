@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loading from "../../Components/Loading/Loading";
 import auth from "../../firebase.config";
 import GoogleLogin from "./GoogleLogin/GoogleLogin";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -35,15 +36,16 @@ const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     signInWithEmailAndPassword(email, password);
+    toast("User Login");
   };
 
   const hendleResetPassword = async () => {
     const email = emailRef.current.value;
     if (email) {
       await sendPasswordResetEmail(email);
-      console.log("email Send");
+      toast("Email Send");
     } else {
-      console.log("Plese Type Your Email");
+      toast("Plese Type Your Email");
     }
   };
 
@@ -81,13 +83,14 @@ const Login = () => {
           Are You New <Link to="/register">Register</Link>
         </p>
         <p>
-          Are You New{" "}
+          Are You New
           <Button variant="link" onClick={hendleResetPassword}>
             password Reset
           </Button>
         </p>
         <GoogleLogin />
       </div>
+      <ToastContainer />
     </div>
   );
 };
