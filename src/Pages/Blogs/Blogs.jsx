@@ -43,7 +43,7 @@ const Blogs = () => {
       <Card>
         <Card.Body>
           <Card.Title>
-            3. What other services doesfirebase provide other than
+            3. What other services does firebase provide other than
             authentication?
           </Card.Title>
           <Card.Text>
